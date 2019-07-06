@@ -27,11 +27,10 @@ namespace CepApp.Controllers.Endereco
             return await _context.CEPS.ToListAsync();
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<CEP>> Enderecos(int id)
+        [HttpGet("{cep}")]
+        public CEP Enderecos(string cep)
         {
-            var endereco = await _context.CEPS.FindAsync(id);
-            return endereco;
+            return _context.CEPS.Where(e => e.Cep == cep).FirstOrDefault();
         }
     }
 }
