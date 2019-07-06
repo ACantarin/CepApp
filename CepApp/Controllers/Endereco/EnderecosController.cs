@@ -10,7 +10,7 @@ using WebService.Models;
 
 namespace CepApp.Controllers.Endereco
 {
-    [Route("api/Enderecos/[controller]")]
+    
     [ApiController]
     public class EnderecosController : ControllerBase
     {
@@ -21,16 +21,24 @@ namespace CepApp.Controllers.Endereco
             _context = context;
         }
 
+        [Route("api/Enderecos/[controller]")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CEP>>> Enderecos()
         {
             return await _context.CEPS.ToListAsync();
         }
-
+        [Route("api/Enderecos/[controller]/{cep}")]
         [HttpGet("{cep}")]
         public CEP Enderecos(string cep)
         {
             return _context.CEPS.Where(e => e.Cep == cep).FirstOrDefault();
+        }
+
+        [Route("api/Enderecos/EnderecosPorEstado/{uf}")]
+        [HttpGet("{uf}")]
+        public ActionResult<IEnumerable<CEP>> EnderecosPorEstado(string uf)
+        {
+            return _context.CEPS.Where(e => e.Uf == uf).ToList();
         }
     }
 }
