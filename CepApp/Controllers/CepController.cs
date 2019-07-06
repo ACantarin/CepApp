@@ -20,7 +20,7 @@ namespace CepApp.Controllers
         }
         public IActionResult Index()
         {
-            return View(_context.CEP.ToList());
+            return View(_context.CEPS.ToList());
         }
 
         public IActionResult ConsultarCep(int? cepNumero)

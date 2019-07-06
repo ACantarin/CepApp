@@ -13,7 +13,6 @@ namespace WebService.Models
         {
 
         }
-
-        public DbSet<CEP> CEP { get; set; }
+        public DbSet<CEP> CEPS { get; set; }
     }
 }

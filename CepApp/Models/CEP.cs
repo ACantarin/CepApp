@@ -22,5 +22,6 @@ namespace CepApp.Models
         public string Ibge { get; set; }
         public string Gia { get; set; }
 
+
     }
 }
